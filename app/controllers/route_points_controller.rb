@@ -54,7 +54,7 @@ class RoutePointsController < ApplicationController
       @route_point.save
     end
     @route_points = RoutePoint.all
-    render :index
+    render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
   # PATCH/PUT /route_points/1
