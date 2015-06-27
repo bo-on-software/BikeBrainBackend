@@ -11,10 +11,15 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
-    @points = RoutePoint.where(:trip_id => @trip.id).order(:gps_time)
-    @hash = Gmaps4rails.build_markers(@points) do |point, marker|
-      marker.lat point.gps_latitude
-      marker.lng point.gps_longitude
+    respond_to do |format|
+      format.html do
+        @points = RoutePoint.where(:trip_id => @trip.id).order(:gps_time)
+        @hash = Gmaps4rails.build_markers(@points) do |point, marker|
+          marker.lat point.gps_latitude
+          marker.lng point.gps_longitude
+        end
+      end
+      format.json { }
     end
     #puts @hash
   end
