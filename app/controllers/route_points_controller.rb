@@ -25,17 +25,24 @@ class RoutePointsController < ApplicationController
   # POST /route_points
   # POST /route_points.json
   def create
-  	route_point_params[:gps_time] = DateTime.parse(route_point_params[:gps_time])
-    @route_point = RoutePoint.new(route_point_params)
-
     respond_to do |format|
-      if @route_point.save
-        format.html { redirect_to @route_point, notice: 'Route point was successfully created.' }
-        format.json { render :show, status: :created, location: @route_point }
-      else
-        format.html { render :new }
-        format.json { render json: @route_point.errors, status: :unprocessable_entity }
-      end
+      format.html {
+        @route_point = RoutePoint.new(route_point_params)
+        if @route_point.save
+          redirect_to @route_point, notice: 'Route point was successfully created.'
+        else
+          render :new
+        end
+      }
+      format.json {
+        route_point_params[:gps_time] = DateTime.parse(route_point_params[:gps_time])
+        @route_point = RoutePoint.new(route_point_params)
+        if @route_point.save
+          render :show, status: :created, location: @route_point
+        else
+          render json: @route_point.errors, status: :unprocessable_entity
+        end
+      }
     end
   end
 
