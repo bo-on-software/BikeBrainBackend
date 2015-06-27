@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @route_point.trip %>
+</p>
+
+<p>
+  <strong>Gps time:</strong>
+  <%= @route_point.gps_time %>
+</p>
+
+<p>
+  <strong>Gps longitude:</strong>
+  <%= @route_point.gps_longitude %>
+</p>
+
+<p>
+  <strong>Gps latitude:</strong>
+  <%= @route_point.gps_latitude %>
+</p>
+
+<p>
+  <strong>Gps speed:</strong>
+  <%= @route_point.gps_speed %>
+</p>
+
+<p>
+  <strong>Cadence:</strong>
+  <%= @route_point.cadence %>
+</p>
+
+<%= link_to 'Edit', edit_route_point_path(@route_point) %> |
+<%= link_to 'Back', route_points_path %>

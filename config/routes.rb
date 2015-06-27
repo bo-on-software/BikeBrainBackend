@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :route_points do
+    collection do
+      post 'multiple.json' => 'route_points#create_multiple'
+     end
+  end
+  resources :trips
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -13,7 +19,15 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #resources :trips do
+    #member do
+      #post 'create'
+      #get 'view'
+    #end
+    #collection do
+      #get 'all'
+    #end
+  #end
 
   # Example resource route with options:
   #   resources :products do

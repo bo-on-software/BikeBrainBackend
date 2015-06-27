@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip_id: 
+  gps_time: 2015-06-27 15:35:12
+  gps_longitude: 1.5
+  gps_latitude: 1.5
+  gps_speed: 1.5
+  cadence: 1.5
+
+two:
+  trip_id: 
+  gps_time: 2015-06-27 15:35:12
+  gps_longitude: 1.5
+  gps_latitude: 1.5
+  gps_speed: 1.5
+  cadence: 1.5

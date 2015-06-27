@@ -1,0 +1,41 @@
+<%= form_for(@route_point) do |f| %>
+  <% if @route_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@route_point.errors.count, "error") %> prohibited this route_point from being saved:</h2>
+
+      <ul>
+      <% @route_point.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :trip_id %><br>
+    <%= f.text_field :trip_id %>
+  </div>
+  <div class="field">
+    <%= f.label :gps_time %><br>
+    <%= f.datetime_select :gps_time %>
+  </div>
+  <div class="field">
+    <%= f.label :gps_longitude %><br>
+    <%= f.text_field :gps_longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :gps_latitude %><br>
+    <%= f.text_field :gps_latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :gps_speed %><br>
+    <%= f.text_field :gps_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :cadence %><br>
+    <%= f.text_field :cadence %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
